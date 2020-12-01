@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Header, Loading } from "./components/";
+import { Header, Loading, Footer } from "./components/";
 
 const WinesLazy = lazy(() => import("./pages/Wines/Wines"));
 const LoginLazy = lazy(() => import("./pages/Login/Login"));
@@ -17,6 +17,7 @@ function Routes() {
           <Route exact path="/register" component={RegisterLazy} />
         </Switch>
       </Suspense>
+      <Footer />
     </Router>
   );
 }

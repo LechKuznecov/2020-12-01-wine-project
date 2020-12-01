@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Header = styled.header`
-  box-shadow: 0 1px 1px 2px #eee;
+  box-shadow: 0 3px 1px 0px #eee;
+  border-bottom: 1px solid #eee;
   padding: 1em;
 `;
 
