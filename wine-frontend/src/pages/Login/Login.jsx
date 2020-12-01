@@ -2,7 +2,7 @@ import React from "react";
 import { Section } from "../../components";
 
 function About() {
-  return <Section fullWidth={false}>About page</Section>;
+  return <Section>Login</Section>;
 }
 
 export default About;

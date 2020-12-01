@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "booksdb.mysql.database.azure.com",
+            "port": 3306,
+            "askForPassword": true,
+            "driver": "MySQL",
+            "name": "Wine types",
+            "database": "books",
+            "username": "serveradmin@booksdb"
+        }
+    ]
+}

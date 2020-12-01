@@ -2,8 +2,8 @@ import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Header, Loading } from "./components/";
 
-const LazyHome = lazy(() => import("./pages/Home/Home"));
-const AboutLazy = lazy(() => import("./pages/About/About"));
+const WinesLazy = lazy(() => import("./pages/Wines/Wines"));
+const LoginLazy = lazy(() => import("./pages/Login/Login"));
 
 function Routes() {
   return (
@@ -11,8 +11,8 @@ function Routes() {
       <Header />
       <Suspense fallback={<Loading />}>
         <Switch>
-          <Route exact path="/" component={LazyHome} />
-          <Route exact path="/about" component={AboutLazy} />
+          <Route exact path="/" component={WinesLazy} />
+          <Route exact path="/login" component={LoginLazy} />
         </Switch>
       </Suspense>
     </Router>
