@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Section, Heading, InputField, Button } from "../../components";
+import {
+  Section,
+  Heading,
+  InputField,
+  Button,
+  Notification,
+} from "../../components";
 import * as S from "./Register.style";
 
 function newUser(email, password, history, setNotification) {
@@ -18,7 +24,7 @@ function newUser(email, password, history, setNotification) {
     .then((res) => res.json())
     .then((data) => {
       if (data.msg === "User has been succesfully registered") {
-        history.push("/");
+        history.push("/login");
       } else {
         setNotification(data.msg);
       }
@@ -35,7 +41,9 @@ function Register() {
   return (
     <Section>
       <Heading>Register</Heading>
-      {notification && <p>{notification}</p>}
+      {notification && (
+        <Notification color="error">{notification}</Notification>
+      )}
       <form
         onSubmit={(e) => {
           e.preventDefault();

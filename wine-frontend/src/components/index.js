@@ -5,3 +5,4 @@ export { default as Loading } from "./Loading/Loading";
 export { default as Heading } from "./Heading/Heading";
 export { default as InputField } from "./InputField/InputField";
 export { default as Footer } from "./Footer/Footer";
+export { default as Notification } from "./Notification/Notification";
