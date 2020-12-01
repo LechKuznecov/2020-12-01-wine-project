@@ -1,7 +1,7 @@
 import React from "react";
 import { Section } from "../../components";
 
-function Home() {
+function Wines() {
   return (
     <>
       <Section>Wines</Section>
@@ -9,4 +9,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Wines;

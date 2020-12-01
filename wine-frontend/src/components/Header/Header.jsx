@@ -1,19 +1,21 @@
 import React from "react";
 import * as S from "./Header.style";
-import logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <S.Header>
-      <Link to="/">
-        <S.Logo src={logo} alt="logo" />
-      </Link>
+      <S.Wrapper>
+        <S.Logo>winefine</S.Logo>
 
-      <S.Actions>
-        <S.StyledLink to="/">Home</S.StyledLink>
-        <S.StyledLink to="/about">About</S.StyledLink>
-      </S.Actions>
+        <S.Actions>
+          <S.StyledLink to="/">Wines</S.StyledLink>
+          <S.StyledLink to="/list">Wine List</S.StyledLink>
+          <S.StyledLink to="/addWine">Add Wine</S.StyledLink>
+          <S.StyledLink to="/login">Login</S.StyledLink>
+          <S.StyledLink to="/register">Register</S.StyledLink>
+          <S.StyledLink to="/logout">Logout</S.StyledLink>
+        </S.Actions>
+      </S.Wrapper>
     </S.Header>
   );
 }

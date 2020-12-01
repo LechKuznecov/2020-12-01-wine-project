@@ -1,6 +1,6 @@
 const theme = {
   primary: {
-    background: "#222222",
+    background: "#eee",
     color: "#ffffff",
     hover: {
       background: "rgb(216,221,222)",
