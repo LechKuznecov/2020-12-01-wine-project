@@ -29,7 +29,7 @@ function addWine(name, region, type, year, history, setNotification, auth) {
   })
     .then((res) => res.json())
     .then((data) => {
-      if ((data.msg = "Wine Type succesfully added!")) {
+      if (data.msg === "Wine Type succesfully added!") {
         history.push("/");
       } else {
         return setNotification(data.msg || "Error");
