@@ -106,4 +106,18 @@ router.post("/login", middleware.userValidation, (req, res) => {
   );
 });
 
+router.post("/addWineType", middleware.isLoggedIn, (req, res) => {
+  con.query(
+    `INSERT INTO wines (name, region, type, year) VALUES (${re.body.name}, ${re.body.region}, ${re.body.type}, ${re.body.year})`,
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(400).json({ msg: "Server error adding wines" });
+      } else {
+        console.log(result);
+        return res.status(201).json({ msg: "Wine Type succesfully added!" });
+      }
+    }
+  );
+});
 module.exports = router;
