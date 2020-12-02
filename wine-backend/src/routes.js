@@ -120,11 +120,12 @@ router.get("/viewWineTypes", middleware.isLoggedIn, (req, res) => {
 router.post("/addWineType", middleware.isLoggedIn, (req, res) => {
   if (req.body.name && req.body.region && req.body.type && req.body.year) {
     con.query(
-      `INSERT INTO wines (name, region, type, year, user_added) VALUES (${mysql.escape(
-        req.body.name
-      )}, ${mysql.escape(req.body.region)}, ${mysql.escape(
-        req.body.type
-      )}, ${mysql.escape(req.body.year)})`,
+      `INSERT INTO wines (name, region, type, year) VALUES (
+        ${mysql.escape(req.body.name)},
+        ${mysql.escape(req.body.region)},
+        ${mysql.escape(req.body.type)},
+        ${mysql.escape(req.body.year)}
+      )`,
       (err, result) => {
         if (err) {
           console.log(err);

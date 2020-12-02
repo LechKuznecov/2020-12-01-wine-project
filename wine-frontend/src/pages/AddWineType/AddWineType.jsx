@@ -29,10 +29,10 @@ function addWine(name, region, type, year, history, setNotification, auth) {
   })
     .then((res) => res.json())
     .then((data) => {
-      if ((data.msg = "Your session is no longer valid")) {
-        return setNotification(data.msg || "Error");
-      } else {
+      if ((data.msg = "Wine Type succesfully added!")) {
         history.push("/");
+      } else {
+        return setNotification(data.msg || "Error");
       }
     })
     .catch((err) => setNotification(err.message));
@@ -63,7 +63,6 @@ function AddWineType() {
   const [region, setRegion] = useState();
   const [type, setType] = useState();
   const [year, setYear] = useState();
-  console.log(auth.token);
   return (
     <Section>
       <Heading>Add Wine Type</Heading>
@@ -79,7 +78,7 @@ function AddWineType() {
           onSubmit={(e) => {
             e.preventDefault();
 
-            addWine(name, region, type, year, history, auth);
+            addWine(name, region, type, year, history, setNotification, auth);
           }}
         >
           <InputField
