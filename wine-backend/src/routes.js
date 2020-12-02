@@ -106,18 +106,38 @@ router.post("/login", middleware.userValidation, (req, res) => {
   );
 });
 
-router.post("/addWineType", middleware.isLoggedIn, (req, res) => {
-  con.query(
-    `INSERT INTO wines (name, region, type, year) VALUES (${re.body.name}, ${re.body.region}, ${re.body.type}, ${re.body.year})`,
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        return res.status(400).json({ msg: "Server error adding wines" });
-      } else {
-        console.log(result);
-        return res.status(201).json({ msg: "Wine Type succesfully added!" });
-      }
+router.get("/viewWineTypes", middleware.isLoggedIn, (req, res) => {
+  con.query("SELECT * FROM wines", (err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(400).json({ msg: "Issue retrieving wine types" });
+    } else {
+      res.json(result);
     }
-  );
+  });
 });
+
+router.post("/addWineType", middleware.isLoggedIn, (req, res) => {
+  if (req.body.name && req.body.region && req.body.type && req.body.year) {
+    con.query(
+      `INSERT INTO wines (name, region, type, year, user_added) VALUES (${mysql.escape(
+        req.body.name
+      )}, ${mysql.escape(req.body.region)}, ${mysql.escape(
+        req.body.type
+      )}, ${mysql.escape(req.body.year)})`,
+      (err, result) => {
+        if (err) {
+          console.log(err);
+          return res.status(400).json({ msg: "Server error adding wines" });
+        } else {
+          console.log(result);
+          return res.status(201).json({ msg: "Wine Type succesfully added!" });
+        }
+      }
+    );
+  } else {
+    return res.status(400).json({ msg: "Passed values are incorrect" });
+  }
+});
+
 module.exports = router;
