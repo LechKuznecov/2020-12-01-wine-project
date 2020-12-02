@@ -4,7 +4,7 @@ import { Section } from "../../components";
 function Wines() {
   return (
     <>
-      <Section>Wines</Section>
+      <Section background="grey">Wines</Section>
     </>
   );
 }

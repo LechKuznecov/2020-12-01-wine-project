@@ -8,7 +8,8 @@ function Header() {
         <S.Logo>winefine</S.Logo>
 
         <S.Actions>
-          <S.StyledLink to="/">Wines</S.StyledLink>
+          <S.StyledLink to="/">Wine Type</S.StyledLink>
+          <S.StyledLink to="/addWineType">Add Wine Type</S.StyledLink>
           <S.StyledLink to="/list">Wine List</S.StyledLink>
           <S.StyledLink to="/addWine">Add Wine</S.StyledLink>
           <S.StyledLink to="/login">Login</S.StyledLink>

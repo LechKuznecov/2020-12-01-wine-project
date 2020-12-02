@@ -6,3 +6,5 @@ export { default as Heading } from "./Heading/Heading";
 export { default as InputField } from "./InputField/InputField";
 export { default as Footer } from "./Footer/Footer";
 export { default as Notification } from "./Notification/Notification";
+export { default as Box } from "./Box/Box";
+export { default as DropDownInput } from "./DropDownInput/DropDownInput";
