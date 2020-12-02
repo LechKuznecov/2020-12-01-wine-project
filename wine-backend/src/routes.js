@@ -141,4 +141,45 @@ router.post("/addWineType", middleware.isLoggedIn, (req, res) => {
   }
 });
 
+router.post("/changewinequantity", middleware.isLoggedIn, (req, res) => {
+  if (req.body.wineId && req.body.quantityChange) {
+    con.query(
+      `INSERT INTO wine_qty (user_id, wine_id, change_qty) VALUES (${
+        req.userData.userId
+      }, ${mysql.escape(req.body.wineId)}, ${mysql.escape(
+        req.body.quantityChange
+      )})`,
+      (err) => {
+        if (err) {
+          console.log(err);
+          return res
+            .status(400)
+            .json({ msg: "Server error adding wine quantity" });
+        } else {
+          return res.status(201).json({ msg: "Wine Quantity change added!" });
+        }
+      }
+    );
+  } else {
+    return res.status(400).json({ msg: "Passed values are incorrect" });
+  }
+});
+
+router.get("/viewwinequantity", middleware.isLoggedIn, (req, res) => {
+  con.query(
+    `SELECT wines.id, wines.name, SUM(wine_qty.change_qty) as Total FROM wine_qty
+     INNER JOIN wines ON wine_qty.wine_id = wines.id
+     WHERE user_id = '${req.userData.userId}'
+     GROUP BY wine_qty.wine_id`,
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(400).json({ msg: "Issue retrieving wine quantity" });
+      } else {
+        res.json(result);
+      }
+    }
+  );
+});
+
 module.exports = router;
