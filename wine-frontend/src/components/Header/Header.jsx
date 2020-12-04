@@ -12,8 +12,8 @@ function Header({ isLoggedIn }) {
             <>
               <S.StyledLink to="/">Wine Type</S.StyledLink>
               <S.StyledLink to="/addWineType">Add Wine Type</S.StyledLink>
-              <S.StyledLink to="/list">Wine List</S.StyledLink>
-              <S.StyledLink to="/addWine">Add Wine</S.StyledLink>
+              <S.StyledLink to="/wineList">Wine List</S.StyledLink>
+              <S.StyledLink to="/addWineQty">Add Wine Quantity</S.StyledLink>
               <S.StyledLink to="/logout">Logout</S.StyledLink>
             </>
           )}

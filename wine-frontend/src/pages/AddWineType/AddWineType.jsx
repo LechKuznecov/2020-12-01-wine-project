@@ -4,7 +4,7 @@ import {
   Heading,
   Box,
   InputField,
-  DropDownInput,
+  DropDownType,
   Button,
   Notification,
 } from "../../components";
@@ -93,7 +93,7 @@ function AddWineType() {
           />
           <S.Flex>
             <S.Width>
-              <DropDownInput
+              <DropDownType
                 labelText="Type"
                 options={types}
                 handleChange={(e) => setType(e.target.value)}
