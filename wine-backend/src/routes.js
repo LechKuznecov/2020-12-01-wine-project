@@ -167,7 +167,7 @@ router.post("/changewinequantity", middleware.isLoggedIn, (req, res) => {
 
 router.get("/viewwinequantity", middleware.isLoggedIn, (req, res) => {
   con.query(
-    `SELECT wines.id, wines.name, SUM(wine_qty.change_qty) as Total FROM wine_qty
+    `SELECT wines.id, wines.name, wines.region, wines.type, SUM(wine_qty.change_qty) as Total FROM wine_qty
      INNER JOIN wines ON wine_qty.wine_id = wines.id
      WHERE user_id = '${req.userData.userId}'
      GROUP BY wine_qty.wine_id`,
