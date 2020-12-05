@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import * as S from "./Header.style";
+import { AuthContext } from "../../context/AuthContext";
 
 function Header({ isLoggedIn }) {
+  const auth = useContext(AuthContext);
   return (
     <S.Header>
       <S.Wrapper>
@@ -14,7 +16,15 @@ function Header({ isLoggedIn }) {
               <S.StyledLink to="/addWineType">Add Wine Type</S.StyledLink>
               <S.StyledLink to="/wineList">Wine List</S.StyledLink>
               <S.StyledLink to="/addWineQty">Add Wine Quantity</S.StyledLink>
-              <S.StyledLink to="/logout">Logout</S.StyledLink>
+              <S.StyledLink
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  auth.setToken(null);
+                }}
+                to="/login"
+              >
+                Logout
+              </S.StyledLink>
             </>
           )}
           {!isLoggedIn && (

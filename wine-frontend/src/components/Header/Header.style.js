@@ -13,7 +13,6 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
 `;
 
 export const Logo = styled.h2`
